@@ -8,8 +8,9 @@ features <- read.table("UCI HAR Dataset/features.txt") ### This file stores head
 ## test data
 
 X_test <- read.table("UCI HAR Dataset/test/X_test.txt")  ### test data vector
-subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt", col.names="subject")
-y_test <- read.table("UCI HAR Dataset/test/y_test.txt", col.names="feature")
+subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt", col.names="Subject")
+y_test <- read.table("UCI HAR Dataset/test/y_test.txt", col.names="Activity")
+activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt", col.names=c("Index", "Activity"))
 
 #### Read in features as the variable headers for X_test
 names(X_test) <- features[,2]
@@ -20,8 +21,8 @@ X_test <- cbind(subject_test, y_test, X_test)
 ## train data
 
 X_train <- read.table("UCI HAR Dataset/train/X_train.txt")  ### train data vector
-subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt", col.names="subject")
-y_train <- read.table("UCI HAR Dataset/train/y_train.txt", col.names="feature")
+subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt", col.names="Subject")
+y_train <- read.table("UCI HAR Dataset/train/y_train.txt", col.names="Activity")
 
 #### Read in features as the variable headers for X_train
 names(X_train) <- features[,2]
@@ -33,8 +34,15 @@ X_train <- cbind(subject_train, y_train, X_train)
 
 df <- rbind(X_test, X_train)
 
+### Join df to  activity_labels in order to provide friendly labels for activities
+df <- merge(activity_labels, df, by.x="Index", by.y="Activity")
+
 ### Extract columns containing Means and SDs using grepl
 ### Wanted to use dplyr but the non-standard characters
 ### in the column names broke that!
 
-df <-  df[grepl("mean|std|subject|feature", names(df))]
+df <-  df[grepl("mean|std|Subject|Activity", names(df))]
+
+means <- group_by(df,Subject, Activity) %>%
+    summarise_each(funs(mean))
+
