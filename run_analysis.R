@@ -1,7 +1,12 @@
+## Code for Coursera getting and Cleaning data course project.
+## Uses data from this project http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+## data contains smartphone accelerometer data
+## https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+## See CodeBook.md and Readme.md for more information
+
 library(dplyr)
 
 #### Initially we read the data in
-
 
 features <- read.table("UCI HAR Dataset/features.txt") ### This file stores headers
 
@@ -16,6 +21,7 @@ activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt", col.names=c
 names(X_test) <- features[,2]
 
 #### cbind subject_test and y_test to X_test to give labels of observation details.
+#### only need to do this once - same for training data.
 X_test <- cbind(subject_test, y_test, X_test)
 
 ## train data
@@ -27,7 +33,7 @@ y_train <- read.table("UCI HAR Dataset/train/y_train.txt", col.names="Activity")
 #### Read in features as the variable headers for X_train
 names(X_train) <- features[,2]
 
-#### cbind subject_test and y_test to X_test to give labels of observation details.
+#### cbind subject_train and y_train to X_train to give labels of observation details.
 X_train <- cbind(subject_train, y_train, X_train)
 
 ### rbind test and training data to give a consolidated data set
