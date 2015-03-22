@@ -41,7 +41,7 @@ Note: there are two sets of data "train" (training data) and "test" (testing dat
 4. Use `merge` to join the **activity_labels** data set onto the DataFrame in order to map the nuemric values to human readable labels.
 5. Now we want to subset the variables to only those made on the mean and Standard Deviation. The rationale for the columns picked obviously comes from the Code Book for the original data set (features_info.txt file in the original Zip file). First of all features (Variable/Column names) containing the text patterns **mean()** and **std()** are included as these indicate the mean and standard deviation of the signal that they are associated with, eg tBodyAcc-mean()-Y would be the mean calculated from the Y-component of the tBodyAcc signal. In addition to these variables, thise containing the text pattern **mean** are included as these were also obtained by averaging signals. To this end, the following regular expression was used to pick the variables `"mean|std|Subject|Activity"`. Subject and Activity were used to pull in the Variables added above to allow the measuresments to be attributed to the Subjects and the Activities that they carried out.This was all done using `grepl` - `dplyr` would have been nicer but fact that the variable names conatined dashes  make it think that there are duplicate names resulting in an error.
 
-## Creation of second, independent, summarise data set.
+## Creation of second, independent, summarised data set.
 The instructions now asked for a separate tidy dataset to be included that has the average of each variable for each activity and subject. This was all achieved using a  `dplyr` "pipe" which performs the following tasks.
 
 1. Group the data by the "Subject" and "Activity" variables
