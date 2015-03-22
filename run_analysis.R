@@ -46,3 +46,4 @@ df <-  df[grepl("mean|std|Subject|Activity", names(df))]
 means <- group_by(df,Subject, Activity) %>%
     summarise_each(funs(mean))
 
+write.table(means, file="means.txt", row.name=FALSE)
