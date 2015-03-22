@@ -5,12 +5,12 @@
 
 This repo contains the following items.
 
-* README - This File.
-* run_analysis.R - the code that will consume the data and produced the summarise dataset.
+* README.md - This File.
+* run_analysis.R - the code that will consume the data and produced the summarised dataset.
 * CodeBook.md - the Code Book to describe the summarised data set.
 * UCI HAR Dataset - a directory containing all the files from the original data set [Original Link](http://archive.ics.uci.edu/ml/machine-learning-databases/00240/)
 
-The R script will combine the datasets into one consolidated dataset and will summarise it t by Subject and Activity to produce means of each variable.
+The R script will combine the datasets into one consolidated dataset and will summarise it by Subject and Activity to produce means of each variable.
 
 ## Running the code
 
@@ -32,7 +32,7 @@ In the working directory, you should find a file called means.txt - this contain
 
 ### Variables in R Workspace after running Code
 
-If you dont want to trawl through the list below, the final summarise data is contained in the "means" Data-Frame.
+If you dont want to trawl through the list below, the final summarised data is contained in the "means" Data-Frame.
 
 
 **X_test** - Raw data from Test data set

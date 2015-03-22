@@ -4,7 +4,7 @@
 
 The source data was from a Study carried out by Ortiz, Anguito, Ghio, Oneto and Parra investigating Accelerometer data from Samsung smartphones. It is available from the links below.
 
-[Study Data Set descripion](ihttp://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#)
+[Study Data Set descripion](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#)
 
 [Data Folder](http://archive.ics.uci.edu/ml/machine-learning-databases/00240/)
 
@@ -35,6 +35,7 @@ The source data was from a Study carried out by Ortiz, Anguito, Ghio, Oneto and 
 ## Initial data transformations 
 
 Note: there are two sets of data "train" (training data) and "test" (testing data). In this document these two sets of data are referred to using "shell style" nomenclature for brevity, eg **subject_T[rain|est]** would refer to both the **subject_Train** and **subject_Test** items.
+
 1. `cbind` the subject_T[rain|est] and y_t[rain|est] vectors onto X_t[rain|est] - this links the subjects and Activities to the observations.
 2. Use features.txt to create variable headers so that we known what each variable is.
 3. `rbind` the training and testing data sets together as per the spec to provide a consolidated data set.
