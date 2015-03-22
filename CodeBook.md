@@ -1,5 +1,13 @@
 # Getting and Cleaning Data - Course Project Codebook 
 
+## Source Data
+
+The source data was from a Study carried out by Ortiz, Anguito, Ghio, Oneto and Parra investigating Accelerometer data from Samsung smartphones. It is available from the links below.
+
+[Study Data Set descripion](ihttp://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#)
+
+[Data Folder](http://archive.ics.uci.edu/ml/machine-learning-databases/00240/)
+
 ## Details regarding the initial files 
 
 **activity_labels.txt** - maps numeric codes to quantities (eg 1 -> Walking)
@@ -42,4 +50,8 @@ The instructions now asked for a separate tidy dataset to be included that has t
 
 ## Description of Variables in the "mean" data set
 
+**Subject** - Label mapping observations to the particular subject that made them.
 
+**Activity** - The activity that the subject was carrying out for a given observation - will be one of WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+
+The Remaining Variables will given the mean of the item in the label grouped by Subject and Activity and averaged, so will give the average for each quantity for each each Activity carried out by each subject. Rather than try and reword the descriptions of these quantities , I refer the reader to the original files features_info.txt and features.txt available for download from [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#)
